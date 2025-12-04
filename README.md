@@ -1,70 +1,72 @@
 # Web, Android, IOS Automation Using Maestro Studio
 
-appId: com.yourcompany.yourapp   # Change to your Android package / iOS Bundle ID
-# For web testing:
-# tags:
-#   - web
+# Maestro UI Test Flow – Full Example (Copy & Run!)
+
+Copy the entire code block below and save it as `example-flow.yaml` in your `.maestro/flows/` folder.
+
+```yaml
+appId: com.yourcompany.yourapp   # Change to your app's package (Android) or Bundle ID (iOS)
 
 ---
-# 1. Launch App (or open website)
+# Launch app & handle permissions
 - launchApp
-# - openLink: https://example.com            # Web only
-
-# 2. Wait for animations & optional permissions
 - waitForAnimationToEnd
 - tapOn:
-    text: "Allow"
+    text: "Allow|While using the app|OK"
     optional: true
-- tapOn:
-    text: "While using the app"
-    optional: true
+    regex: true
 
-# 3. Input Text
-- tapOn: "Email or username"
+# Login
+- tapOn: "Email|Username"
 - inputText: "testuser@example.com"
 - hideKeyboard
-
 - tapOn: "Password"
 - inputText: "SuperSecret123!"
 - hideKeyboard
+- tapOn: "Log In|Sign In|Continue"
 
-# 4. Tap / Click
-- tapOn: "Log In"
-# - tapOn: { id: "login_btn" }               # by resource-id / accessibilityIdentifier
+# Double tap on profile
+- doubleTapOn: "Profile Picture|Avatar"
 
-# 5. Double Tap
-- doubleTapOn: "Profile Picture"
+# Scroll feed
+- repeat:
+    times: 5
+    commands:
+      - scroll
+      - delay: 800
 
-# 6. Scroll / Swipe
-- scroll                                     # Auto-scroll down
+# Swipe actions
 - swipe:
     direction: DOWN
     duration: 1000
-- swipe:
-    direction: UP
-    duration: 800
-- swipe:                                      # Pull-to-refresh
+- swipe:                                  # Pull to refresh
     start: "50%,80%"
     end: "50%,20%"
     duration: 600
 
-# 7. Long Press
+# Long press & delete
 - longPressOn:
-    text: "Post Options"
+    text: "Post|Item"
     duration: 1500
-- tapOn: "Delete"
+- tapOn: "Delete|Remove"
+- tapOn: "Confirm"
 
-# 8. Assertions (will fail the test if not met)
-- assertVisible: "Home"
+# Input random data (great for sign-up tests)
+- tapOn: "Name"
+- inputRandomPersonName
+- tapOn: "Email"
+- inputRandomEmail
+
+# Assertions – fail fast if wrong screen
 - assertVisible:
-    text: "Welcome back"
+    text: "Home|Dashboard|Feed"
     timeout: 15000
-- assertNotVisible: "Login"
+- assertNotVisible: "Log In"
 
-# 9. Take Screenshot
-- takeScreenshot: screenshots/home_screen.png
+# Take proof
+- takeScreenshot: screenshots/home_after_login.png
 
-# 10. Take Video Recording
+# Record a short video
 - startRecording
 - tapOn: "Search"
 - inputRandomText
@@ -72,25 +74,7 @@ appId: com.yourcompany.yourapp   # Change to your Android package / iOS Bundle I
 - scroll
 - stopRecording: videos/search_demo.mp4
 
-# 11. Back & Key Press
+# Final navigation
 - back
-- pressKey: Enter
-
-# 12. Repeat Actions (e.g., infinite scroll test)
-- repeat:
-    times: 6
-    commands:
-      - scroll
-      - delay: 1000
-
-# 13. Conditional Flow (Maestro ≥1.33)
-- extendedWaitUntil:
-    visible: "Skip Tutorial"
-    timeout: 5000
-- tapOn:
-    text: "Skip Tutorial"
-    optional: true
-
-# 14. Clean app state (optional, for fresh runs)
-# - eraseAppData
-# - launchApp
+- back
+- pressKey: Home                            # Android only
