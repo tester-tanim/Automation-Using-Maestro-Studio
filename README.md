@@ -79,11 +79,12 @@ appId: com.yourcompany.yourapp   # Change to your app's package (Android) or Bun
 - back
 - pressKey: Home                            # Android only
 
-
+```
 # How to Run
 # On emulator / iOS simulator
 maestro test flows/example-flow.yaml
 
 # On real Android device (watch it live with Vysor!)
 maestro test --device <your-device-id> flows/example-flow.yaml
+
 
