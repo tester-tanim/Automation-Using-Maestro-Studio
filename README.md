@@ -1,10 +1,20 @@
 # Web, Android, IOS Automation Using Maestro Studio
 
+JAVA JDK For Android Studio
+```yaml
+https://www.oracle.com/apac/java/technologies/downloads/
+```
+Android Studio 
+```yaml
+https://developer.android.com/studio
+```
+
 # For Installation go to this Url and download the file according to your device
 ```yaml
-
 https://docs.maestro.dev/getting-started/maestro-studio-desktop
 ```
+
+
 
 # Maestro UI Test Flow – Full Example (Copy & Run!)
 
