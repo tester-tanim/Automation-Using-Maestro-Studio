@@ -1,0 +1,42 @@
+appId: com.peopledesk
+---
+- launchApp:
+    clearState: true
+- waitForAnimationToEnd
+- assertVisible: "Enter ID"
+- tapOn: "Enter ID"
+- inputText: "***"
+- assertVisible: "Password"
+- tapOn: "Password"
+- inputText: "******"
+- doubleTapOn: LOG IN
+- assertVisible: "Leave"
+- tapOn: "Leave"
+- assertVisible: 󰐕
+- tapOn: 󰐕
+- assertVisible: Leave Type, 
+- tapOn: Leave Type, 
+- assertVisible: Casual Leave [CL]
+- tapOn: Casual Leave [CL]
+- assertVisible: Leave Consume Type
+- tapOn: Leave Consume Type, 
+- tapOn: Full Day
+- assertVisible: 󰭧
+- tapOn: 󰭧
+- tapOn: 09 December 2025
+- tapOn: OK
+- tapOn:
+    point: 52%,26%
+- tapOn: 09 December 2025
+- tapOn: OK
+- tapOn:
+    point: 52%,32%
+- inputText: "Dhaka"
+- hideKeyboard
+- tapOn:
+    point: 8%,40%
+- inputText: "Personal Reason."
+- hideKeyboard
+- assertVisible: Submit
+
+- doubleTapOn: Submit
