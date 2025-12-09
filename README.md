@@ -1,4 +1,8 @@
 # Web, Android, IOS Automation Using Maestro Studio
+```yaml
+# To Install this go to this Url and download the file according to your device
+https://docs.maestro.dev/getting-started/maestro-studio-desktop
+```
 
 # Maestro UI Test Flow – Full Example (Copy & Run!)
 
