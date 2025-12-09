@@ -1,6 +1,6 @@
 # Web, Android, IOS Automation Using Maestro Studio
 
-# To Install this go to this Url and download the file according to your device
+# For Installation go to this Url and download the file according to your device
 ```yaml
 
 https://docs.maestro.dev/getting-started/maestro-studio-desktop
