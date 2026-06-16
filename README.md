@@ -98,12 +98,18 @@ appId: com.yourcompany.yourapp   # Change to your app's package (Android) or Bun
 ```
 # How to Run
 # On emulator / iOS simulator
+```yaml
 maestro test flows/example-flow.yaml
+```
 
 # On real Android device (watch it live with Vysor!)
+```yaml
 maestro test --device <your-device-id> flows/example-flow.yaml
+```
 
 # Report Generate Using Command line
+```yaml
 maestro test --format html your-flow.yaml
+```
 
 
