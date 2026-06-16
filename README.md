@@ -103,4 +103,7 @@ maestro test flows/example-flow.yaml
 # On real Android device (watch it live with Vysor!)
 maestro test --device <your-device-id> flows/example-flow.yaml
 
+# Report Generate Using Command line
+maestro test --format html your-flow.yaml
+
 
